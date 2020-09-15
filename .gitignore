@@ -1,17 +1,29 @@
-.DS_Store
-*target*
-*.versionsBackup
-.project
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+### STS ###
+.apt_generated
 .classpath
-bin
+.factorypath
+.project
 .settings
-*.log
-
-**/.DS_Store
-**/*.versionsBackup
-**/.project
-**/.classpath
-**/bin
-**/.settings
-**/*.log
+.springBeans
+.sts4-cache
+### IntelliJ IDEA ###
+.idea
+*.iws
 *.iml
+*.ipr
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+### VS Code ###
+.vscode/
