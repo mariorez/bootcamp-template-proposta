@@ -1,14 +1,24 @@
 package br.com.zup.bootcamp.proposta.write.application.service;
 
+import br.com.zup.bootcamp.proposta.common.SelfValidation;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
 import java.util.UUID;
 
-public class CreateProposalCommand implements Command {
+public class CreateProposalCommand implements Command, SelfValidation {
 
     private final UUID externalId;
+    @NotBlank
     private final String identityDocument;
+    @Email
     private final String email;
+    @NotBlank
     private final String name;
+    @Positive
     private final Double salary;
+    @NotBlank
     private final String address;
 
     public CreateProposalCommand(String identityDocument,
@@ -22,6 +32,7 @@ public class CreateProposalCommand implements Command {
         this.name = name;
         this.salary = salary;
         this.address = address;
+        selfValidate();
     }
 
     public UUID getExternalId() {
