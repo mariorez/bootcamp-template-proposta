@@ -4,11 +4,13 @@ import br.com.zup.bootcamp.proposta.write.application.domain.Proposal;
 import br.com.zup.bootcamp.proposta.write.application.domain.WriteProposalRepository;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.util.Optional;
 import java.util.UUID;
 
+@Repository
 public class WriteProposalRepositoryImpl implements WriteProposalRepository {
 
     private NamedParameterJdbcTemplate jdbcTemplate;

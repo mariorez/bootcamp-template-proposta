@@ -2,10 +2,10 @@ package br.com.zup.bootcamp.proposta.write.application.service;
 
 import br.com.zup.bootcamp.proposta.write.application.domain.Proposal;
 import br.com.zup.bootcamp.proposta.write.application.domain.WriteProposalRepository;
+import org.springframework.stereotype.Service;
 
-import java.util.UUID;
-
-public class CreateProposalHandler {
+@Service
+public class CreateProposalHandler implements Handler<CreateProposalCommand> {
 
     private final WriteProposalRepository proposalRepository;
 

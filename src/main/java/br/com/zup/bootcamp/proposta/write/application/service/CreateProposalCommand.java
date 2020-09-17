@@ -2,7 +2,7 @@ package br.com.zup.bootcamp.proposta.write.application.service;
 
 import java.util.UUID;
 
-public class CreateProposalCommand {
+public class CreateProposalCommand implements Command {
 
     private final UUID externalId;
     private final String identityDocument;
