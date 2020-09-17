@@ -1,7 +1,10 @@
 package br.com.zup.bootcamp.proposta.write.application.service;
 
+import java.util.UUID;
+
 public class CreateProposalCommand {
 
+    private final UUID externalId;
     private final String identityDocument;
     private final String email;
     private final String name;
@@ -21,6 +24,7 @@ public class CreateProposalCommand {
                                  String secondaryAddress,
                                  String city,
                                  String state) {
+        externalId = UUID.randomUUID();
         this.identityDocument = identityDocument;
         this.email = email;
         this.name = name;
@@ -30,6 +34,10 @@ public class CreateProposalCommand {
         this.secondaryAddress = secondaryAddress;
         this.city = city;
         this.state = state;
+    }
+
+    public UUID getExternalId() {
+        return externalId;
     }
 
     public String getIdentityDocument() {

@@ -7,14 +7,12 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 
-import java.util.UUID;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 @Tag("unit")
-public class CreateProposalCommandTest extends TestHelper {
+public class CreateProposalHandlerTest extends TestHelper {
 
     private ArgumentCaptor<Proposal> captor = ArgumentCaptor.forClass(Proposal.class);
 
@@ -52,7 +50,7 @@ public class CreateProposalCommandTest extends TestHelper {
         // THEN
         verify(proposalRepository).create(captor.capture());
         var expectedProposal = captor.getValue();
-        assertThat(expectedProposal.getExternalId()).isInstanceOf(UUID.class);
+        assertThat(expectedProposal.getExternalId()).isEqualTo(command.getExternalId());
         assertThat(identityDocument).isEqualTo(expectedProposal.getIdentityDocument());
         assertThat(email).isEqualTo(expectedProposal.getEmail());
         assertThat(name).isEqualTo(expectedProposal.getName());

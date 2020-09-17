@@ -16,7 +16,7 @@ public class CreateProposalHandler {
     public void handle(CreateProposalCommand command) {
 
         var proposal = new Proposal()
-                .setExternalId(UUID.randomUUID())
+                .setExternalId(command.getExternalId())
                 .setIdentityDocument(command.getIdentityDocument())
                 .setEmail(command.getEmail())
                 .setName(command.getName())
