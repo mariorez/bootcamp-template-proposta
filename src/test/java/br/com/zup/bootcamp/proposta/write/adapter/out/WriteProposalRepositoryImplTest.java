@@ -29,7 +29,7 @@ public class WriteProposalRepositoryImplTest extends TestHelper {
     }
 
     @Test
-    void dummy() {
+    void WHEN_CreatingProposal_GIVEN_ValidData_MUST_PersistOnDatabase() {
 
         // GIVEN
         var expected = new Proposal()
