@@ -24,22 +24,14 @@ public class CreateProposalHandlerTest extends TestHelper {
         var email = faker.internet().emailAddress();
         var name = faker.dragonBall().character();
         var salary = (Double) faker.number().randomDouble(2, 3, 6);
-        var street = faker.address().streetName();
-        var streetNumber = faker.address().streetAddressNumber();
-        var secondaryAddress = faker.address().secondaryAddress();
-        var city = faker.address().city();
-        var state = faker.address().stateAbbr();
+        var address = faker.address().fullAddress();
 
         var command = new CreateProposalCommand(
                 identityDocument,
                 email,
                 name,
                 salary,
-                street,
-                streetNumber,
-                secondaryAddress,
-                city,
-                state);
+                address);
 
         var proposalRepository = mock(WriteProposalRepository.class);
 
@@ -55,10 +47,6 @@ public class CreateProposalHandlerTest extends TestHelper {
         assertThat(email).isEqualTo(expectedProposal.getEmail());
         assertThat(name).isEqualTo(expectedProposal.getName());
         assertThat(salary).isEqualTo(expectedProposal.getSalary());
-        assertThat(street).isEqualTo(expectedProposal.getStreet());
-        assertThat(streetNumber).isEqualTo(expectedProposal.getStreetNumber());
-        assertThat(secondaryAddress).isEqualTo(expectedProposal.getSecondaryAddress());
-        assertThat(city).isEqualTo(expectedProposal.getCity());
-        assertThat(state).isEqualTo(expectedProposal.getState());
+        assertThat(address).isEqualTo(expectedProposal.getAddress());
     }
 }

@@ -38,11 +38,7 @@ public class WriteProposalRepositoryImplTest extends TestHelper {
                 .setEmail(faker.internet().emailAddress())
                 .setName(faker.dragonBall().character())
                 .setSalary((Double) faker.number().randomDouble(2, 3, 6))
-                .setStreet(faker.address().streetName())
-                .setStreetNumber(faker.address().streetAddressNumber())
-                .setSecondaryAddress(faker.address().secondaryAddress())
-                .setCity(faker.address().city())
-                .setState(faker.address().stateAbbr());
+                .setAddress(faker.address().fullAddress());
 
         // WHEN
         repository.create(expected);
@@ -55,11 +51,7 @@ public class WriteProposalRepositoryImplTest extends TestHelper {
         assertThat(actual.getEmail()).isEqualTo(expected.getEmail());
         assertThat(actual.getName()).isEqualTo(expected.getName());
         assertThat(actual.getSalary()).isEqualTo(expected.getSalary());
-        assertThat(actual.getStreet()).isEqualTo(expected.getStreet());
-        assertThat(actual.getStreetNumber()).isEqualTo(expected.getStreetNumber());
-        assertThat(actual.getSecondaryAddress()).isEqualTo(expected.getSecondaryAddress());
-        assertThat(actual.getCity()).isEqualTo(expected.getCity());
-        assertThat(actual.getState()).isEqualTo(expected.getState());
+        assertThat(actual.getAddress()).isEqualTo(expected.getAddress());
         assertThat(actual.getCreated()).isBeforeOrEqualTo(LocalDateTime.now());
         assertThat(actual.getUpdated()).isBeforeOrEqualTo(LocalDateTime.now());
     }

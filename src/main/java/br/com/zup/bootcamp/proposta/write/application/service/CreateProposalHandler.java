@@ -21,11 +21,7 @@ public class CreateProposalHandler implements Handler<CreateProposalCommand> {
                 .setEmail(command.getEmail())
                 .setName(command.getName())
                 .setSalary(command.getSalary())
-                .setStreet(command.getStreet())
-                .setStreetNumber(command.getStreetNumber())
-                .setSecondaryAddress(command.getSecondaryAddress())
-                .setCity(command.getCity())
-                .setState(command.getState());
+                .setAddress(command.getAddress());
 
         proposalRepository.create(proposal);
     }

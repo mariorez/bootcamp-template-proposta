@@ -21,8 +21,8 @@ public class WriteProposalRepositoryImpl implements WriteProposalRepository {
 
     @Override
     public void create(Proposal proposal) {
-        var sql = "INSERT INTO proposal(external_id, identity_document, email, name, salary, street, streetNumber, secondaryAddress, city, state) " +
-                "values (:external_id, :identity_document, :email, :name, :salary, :street, :streetNumber, :secondaryAddress, :city, :state)";
+        var sql = "INSERT INTO proposal(external_id, identity_document, email, name, salary, address) " +
+                "values (:external_id, :identity_document, :email, :name, :salary, :address)";
 
         MapSqlParameterSource parameters = new MapSqlParameterSource()
                 .addValue("external_id", proposal.getExternalId())
@@ -30,11 +30,7 @@ public class WriteProposalRepositoryImpl implements WriteProposalRepository {
                 .addValue("email", proposal.getEmail())
                 .addValue("name", proposal.getName())
                 .addValue("salary", proposal.getSalary())
-                .addValue("street", proposal.getStreet())
-                .addValue("streetNumber", proposal.getStreetNumber())
-                .addValue("secondaryAddress", proposal.getSecondaryAddress())
-                .addValue("city", proposal.getCity())
-                .addValue("state", proposal.getState());
+                .addValue("address", proposal.getAddress());
 
         jdbcTemplate.update(sql, parameters);
     }
@@ -42,7 +38,7 @@ public class WriteProposalRepositoryImpl implements WriteProposalRepository {
     @Override
     public Optional<Proposal> findByExternalId(UUID externalId) {
 
-        var sql = "SELECT id, external_id, identity_document, email, name, salary, street, streetNumber, secondaryAddress, city, state, created, updated " +
+        var sql = "SELECT id, external_id, identity_document, email, name, salary, address, created, updated " +
                 "FROM proposal " +
                 "WHERE external_id = :external_id";
 
@@ -59,11 +55,7 @@ public class WriteProposalRepositoryImpl implements WriteProposalRepository {
                         .setEmail(resultSet.getString("email"))
                         .setName(resultSet.getString("name"))
                         .setSalary(resultSet.getDouble("salary"))
-                        .setStreet(resultSet.getString("street"))
-                        .setStreetNumber(resultSet.getString("streetNumber"))
-                        .setSecondaryAddress(resultSet.getString("secondaryAddress"))
-                        .setCity(resultSet.getString("city"))
-                        .setState(resultSet.getString("state"))
+                        .setAddress(resultSet.getString("address"))
                         .setCreated(resultSet.getTimestamp("created").toLocalDateTime())
                         .setUpdated(resultSet.getTimestamp("updated").toLocalDateTime()));
             }

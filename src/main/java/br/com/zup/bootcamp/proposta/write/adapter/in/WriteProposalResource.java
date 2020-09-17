@@ -30,11 +30,7 @@ public class WriteProposalResource {
                 input.email,
                 input.name,
                 input.salary,
-                input.street,
-                input.streetNumber,
-                input.secondaryAddress,
-                input.city,
-                input.state);
+                input.address);
 
         serviceBus.execute(command);
 
@@ -54,15 +50,7 @@ public class WriteProposalResource {
         String name;
         @JsonProperty("salary")
         Double salary;
-        @JsonProperty("street")
-        String street;
-        @JsonProperty("streetNumber")
-        String streetNumber;
-        @JsonProperty("secondaryAddress")
-        String secondaryAddress;
-        @JsonProperty("city")
-        String city;
-        @JsonProperty("state")
-        String state;
+        @JsonProperty("address")
+        String address;
     }
 }

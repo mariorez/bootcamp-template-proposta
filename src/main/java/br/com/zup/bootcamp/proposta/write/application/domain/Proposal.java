@@ -11,11 +11,7 @@ public class Proposal {
     private String email;
     private String name;
     private Double salary;
-    private String street;
-    private String streetNumber;
-    private String secondaryAddress;
-    private String city;
-    private String state;
+    private String address;
     private LocalDateTime created;
     private LocalDateTime updated;
 
@@ -73,48 +69,12 @@ public class Proposal {
         return this;
     }
 
-    public String getStreet() {
-        return street;
+    public String getAddress() {
+        return address;
     }
 
-    public Proposal setStreet(String street) {
-        this.street = street;
-        return this;
-    }
-
-    public String getStreetNumber() {
-        return streetNumber;
-    }
-
-    public Proposal setStreetNumber(String streetNumber) {
-        this.streetNumber = streetNumber;
-        return this;
-    }
-
-    public String getSecondaryAddress() {
-        return secondaryAddress;
-    }
-
-    public Proposal setSecondaryAddress(String secondaryAddress) {
-        this.secondaryAddress = secondaryAddress;
-        return this;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public Proposal setCity(String city) {
-        this.city = city;
-        return this;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public Proposal setState(String state) {
-        this.state = state;
+    public Proposal setAddress(String address) {
+        this.address = address;
         return this;
     }
 
