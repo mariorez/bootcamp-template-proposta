@@ -1,5 +1,8 @@
 package br.com.zup.bootcamp.proposta.common;
 
+import static br.com.zup.bootcamp.proposta.common.InternalEvent.Type.COMMAND;
+import static br.com.zup.bootcamp.proposta.common.InternalEvent.Type.QUERY;
+
 public abstract class InternalEvent {
 
     private Exception exception;
@@ -8,8 +11,8 @@ public abstract class InternalEvent {
 
     enum Type {
 
-        COMMAND("Command"),
-        QUERY("Query");
+        COMMAND("command"),
+        QUERY("query");
 
         private String typeName;
 
@@ -28,9 +31,8 @@ public abstract class InternalEvent {
     public abstract String toJson();
 
     public Type getType() {
-
-        if (getOrigin().contains(Type.COMMAND.toString())) return Type.COMMAND;
-        if (getOrigin().contains(Type.QUERY.toString())) return Type.QUERY;
+        if (getOrigin().toLowerCase().substring(getOrigin().length() - 7).contains(COMMAND.toString())) return COMMAND;
+        if (getOrigin().toLowerCase().substring(getOrigin().length() - 5).contains(QUERY.toString())) return QUERY;
         return null;
     }
 
