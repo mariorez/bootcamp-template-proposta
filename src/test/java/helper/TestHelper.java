@@ -6,5 +6,5 @@ import org.junit.jupiter.api.Tag;
 @Tag("all")
 public abstract class TestHelper {
 
-    protected Faker faker = new Faker();
+    protected static Faker faker = new Faker();
 }

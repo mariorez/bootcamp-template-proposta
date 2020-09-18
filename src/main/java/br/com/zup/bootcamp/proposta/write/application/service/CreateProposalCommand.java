@@ -5,6 +5,7 @@ import br.com.zup.bootcamp.proposta.common.SelfValidation;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
 import java.util.UUID;
 
 public class CreateProposalCommand implements Command, SelfValidation {
@@ -12,13 +13,16 @@ public class CreateProposalCommand implements Command, SelfValidation {
     private final UUID externalId;
     @NotBlank
     private final String identityDocument;
+    @NotBlank
     @Email
     private final String email;
     @NotBlank
+    @Size(min = 1, max = 150)
     private final String name;
     @Positive
     private final Double salary;
     @NotBlank
+    @Size(min = 1, max = 255)
     private final String address;
 
     public CreateProposalCommand(String identityDocument,
